@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="TemplateData/style.css" />
   </head>
   <body>
-    <div>
+    <div id="info-container">
       <h1>The Endless Run</h1>
-      <h2>By Janis & Severin</h2>
+      <h2 id="creators">By Janis & Severin</h2>
+      <div id="github-icon"></div>
+      <p>GitHub</p>
+      <a href="https://github.com/sevi361">sevi361</a>
+      <a href="https://github.com/NoBugz69">NoBugz69</a>
     </div>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+      <canvas
+        id="unity-canvas"
+        width="800px"
+        height="450px"
+        tabindex="-1"
+      ></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -22,9 +31,9 @@
       </div>
       <div id="unity-warning"></div>
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
+        <!-- <div id="unity-webgl-logo"></div> -->
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">TheEndlessRun</div>
+        <!-- <div id="unity-build-title">TheEndlessRun</div> -->
       </div>
     </div>
     <script>
@@ -99,8 +108,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "800px";
+        canvas.style.height = "450px";
       }
 
       loadingBar.style.display = "block";
