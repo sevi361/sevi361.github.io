@@ -13,16 +13,20 @@ body {
 }
 #unity-container.unity-mobile {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 0%;
+  height: 0%;
+  /* width: 100%;
+  height: 100%; */
 }
 #unity-canvas {
   background: #231f20;
   border-radius: 1%;
 }
 .unity-mobile #unity-canvas {
-  width: 100%;
-  height: 100%;
+  width: 0%;
+  height: 0%;
+  /* width: 100%;
+  height: 100%; */
 }
 #unity-loading-bar {
   position: absolute;
@@ -88,14 +92,15 @@ body {
 }
 #info-container {
   position: absolute;
-  left: 7%;
-  top: 15%;
+  left: 16%;
+  top: 49%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: white;
 }
 
-#creators {
-  margin-bottom: 150px;
+#info-container h1 {
+  text-shadow: white 0px 0px 3px;
 }
 
 a {
@@ -108,11 +113,22 @@ a {
   border-color: white;
 }
 
+#highscores {
+  text-shadow: gold 0px 0px 3px;
+}
+
 #github-icon {
   background-image: url("github-mark-white.svg");
   margin: 0 auto;
+  margin-top: 150px;
+  padding-right: 0.5px;
   height: 50px;
-  width: 52px;
-  border: none;
+  width: 50px;
+  border-radius: 30px;
   background-size: cover;
+  box-shadow: white 0px 0px 5px;
+}
+a:hover {
+  box-shadow: white 0px 0px 5px;
+  text-shadow: white 0px 0px 5px;
 }
