@@ -4,16 +4,39 @@
   font-family: "Source Code Pro";
 }
 
+html,
+body {
+  height: 100%;
+  background: rgb(2, 0, 36);
+  /* background: linear-gradient(
+    29deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(121, 9, 90, 1) 25%,
+    rgba(24, 206, 93, 1) 75%,
+    rgba(0, 0, 0, 1) 100%
+  ); */
+  background-image: linear-gradient(
+    111.9deg,
+    rgba(221, 49, 49, 1) 0.3%,
+    rgba(0, 8, 119, 1) 100.7%
+  );
+  backdrop-filter: blur(10px);
+}
+
 #navbar {
-  background-color: lightgrey;
-  height: 50px;
-  padding-left: 10px;
+  background-color: black;
+  height: 70px;
+  padding-left: 20px;
   display: flex;
   align-items: center;
+  color: white;
+  border-bottom: 3px solid white;
 }
 
 h2 {
   font-size: xx-large;
+  color: white;
+  text-shadow: black 1px 0 10px;
 }
 
 .answerButton,
@@ -22,6 +45,7 @@ h2 {
   margin: 5px;
   padding: 15px 10px;
   font-size: large;
+  font-weight: bold;
   border: solid black 1px;
   border-radius: 4px;
   background-color: white;
@@ -37,6 +61,7 @@ h2 {
   height: 50px;
   width: 150px;
   font-size: large;
+  font-weight: bold;
   border: solid black 1px;
   border-radius: 4px;
 }
@@ -93,7 +118,9 @@ h2 {
 }
 
 #scoreContainer {
+  position: fixed;
+  bottom: 2%;
+  width: 98%;
   display: flex;
   justify-content: right;
-  margin: 0px 15px;
 }
