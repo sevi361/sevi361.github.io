@@ -5,30 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trivia</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header id="navbar">
-      <h1>trivia</h1>
-    </header>
-    <div id="questionContainer">
-      <h2 id="newQuestion"></h2>
-    </div>
-    <div id="answerContainer">
-      <button class="answerButton" onclick="inputAnswer(1)"></button>
-      <button class="answerButton" onclick="inputAnswer(2)"></button>
-      <button class="answerButton" onclick="inputAnswer(3)"></button>
-      <button class="answerButton" onclick="inputAnswer(4)"></button>
-    </div>
-    <div id="submitContainer">
-      <button id="submitButton" onclick="submitAnswer()">submit</button>
-      <button id="nextButton" onclick="createQuiz()">next</button>
-    </div>
-    <div id="scoreContainer">
-      <h2 id="score"></h2>
+    <div id="menuContainer">
+      <div id="titleContainer">
+        <h1 id="title">trivia</h1>
+        <h2 id="subtitle">by <br />sevi</h2>
+        <br />
+      </div>
+
+      <div id="modeMenu">
+        <button class="modeButton" onclick="modeSelection(0, 'Time')">
+          Time
+        </button>
+        <button class="modeButton" onclick="modeSelection(1, 'Endless')">
+          Endless
+        </button>
+        <button class="modeButton" onclick="modeSelection(2, 'Custom')">
+          Custom
+        </button>
+      </div>
+
+      <div id="gameMenu">
+        <form action="/trivia.html" id="form">
+          <input type="text" name="Mode" id="modeField" value="" required />
+          <div id="gameOptions">
+            <select id="categorySelector" name="Category">
+              <!-- <option value="any">All</option> -->
+              <option value="9">General Knowledge</option>
+              <option value="17">Science & Nature</option>
+              <option value="20">Mythology</option>
+              <option value="21">Sports</option>
+              <option value="22">Geography</option>
+              <option value="24">Politics</option>
+              <option value="25">Art</option>
+              <option value="26">Celebrities</option>
+              <option value="23">History</option>
+              <option value="11">Film</option>
+              <option value="23">History</option>
+            </select>
+            <input
+              type="number"
+              value="50"
+              min="1"
+              max="50"
+              name="Amount"
+              id="amountSelector"
+            />
+          </div>
+
+          <button id="startButton">Start</button>
+        </form>
+      </div>
     </div>
   </body>
-  <script src="trivia.js"></script>
+  <script type="text/javascript" src="index.js"></script>
 </html>

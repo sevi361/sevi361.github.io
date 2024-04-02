@@ -5,23 +5,56 @@ const answerElements = answerContainer.children;
 const submitButton = document.getElementById("submitButton");
 const nextButton = document.getElementById("nextButton");
 let score = document.getElementById("score");
-var round;
-var points = 0;
+let mode;
+let round;
+let points = 0;
 let quiz;
-var answers = [];
-var chosenAnswer;
+let answers = [];
+let chosenAnswer;
+let selected = false;
+
+// document.addEventListener("keydown", function (event) {
+//   if (event.key == " ") {
+//     submitAnswer();
+//   }
+// });
+
+window.addEventListener("load", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get("Category");
+  const amount = urlParams.get("Amount");
+  mode = urlParams.get("Mode");
+  resetScore();
+
+  startGame();
+
+  callApi(`amount=${amount}&category=${category}&type=multiple`);
+  console.log(category);
+});
+
+function startGame() {
+  if (mode == "Time") {
+    //..
+  }
+  if (mode == "Endless") {
+    console.log("endless mode");
+  }
+  if (mode == "Custom") {
+  } else {
+  }
+}
 
 function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = array[i];
     array[i] = array[j];
     array[j] = temp;
   }
 }
 
 function decodeHtml(html) {
-  var txt = document.createElement("textarea");
+  let txt = document.createElement("textarea");
   txt.innerHTML = html;
   return txt.value;
 }
@@ -49,46 +82,44 @@ function createQuiz() {
   answers = quiz[round].incorrect_answers.concat(quiz[round].correct_answer);
   //console.log(answers);
   shuffleArray(answers);
-  //console.log(answers);
-  answerElements[0].innerHTML = answers[0];
-  answerElements[1].innerHTML = answers[1];
-  answerElements[2].innerHTML = answers[2];
-  answerElements[3].innerHTML = answers[3];
+
+  for (let m = 0; m < 4; m++) {
+    answerElements[m].innerHTML = answers[m];
+  }
 }
 
 function inputAnswer(number) {
   clearColor();
   chosenAnswer = number - 1;
-  answerElements[chosenAnswer].style.backgroundColor = "lightgrey";
+  answerElements[chosenAnswer].classList.add("answerButtonClicked");
+  selected = true;
 }
 
 function submitAnswer() {
-  if (
-    answerElements[chosenAnswer].innerHTML ==
-    decodeHtml(quiz[round].correct_answer)
-  ) {
-    round = round + 1;
-    points = points + 1;
-    //console.log(round);
-    answerElements[chosenAnswer].style.backgroundColor = "lightgreen";
-    answerElements[0].disabled = true;
-    answerElements[1].disabled = true;
-    answerElements[2].disabled = true;
-    answerElements[3].disabled = true;
+  if (selected) {
+    for (let n = 0; n < 4; n++) {
+      answerElements[n].disabled = true;
+    }
     submitButton.style.display = "none";
     nextButton.style.display = "inline-block";
+
+    if (
+      answerElements[chosenAnswer].innerHTML ==
+      decodeHtml(quiz[round].correct_answer)
+    ) {
+      points = points + 1;
+      //console.log(round);
+      answerElements[chosenAnswer].classList.add("answerButtonCorrect");
+    } else {
+      showSolution();
+      //console.log("wrong answer");
+      answerElements[chosenAnswer].classList.add("answerButtonWrong");
+    }
+    round = round + 1;
   } else {
-    showSolution();
-    round = round + 1;
-    //console.log("wrong answer");
-    answerElements[chosenAnswer].style.backgroundColor = "rgb(254, 76, 76)";
-    answerElements[0].disabled = true;
-    answerElements[1].disabled = true;
-    answerElements[2].disabled = true;
-    answerElements[3].disabled = true;
-    submitButton.style.display = "none";
-    nextButton.style.display = "inline-block";
+    alert("please select an answer");
   }
+  selected = false;
 }
 
 function showSolution() {
@@ -96,29 +127,25 @@ function showSolution() {
   for (let k = 0; k < answers.length; k++) {
     console.log("OK");
     if (answers[k] == quiz[round].correct_answer) {
-      answerElements[k].style.backgroundColor = "lightgreen";
+      answerElements[k].classList.add("answerButtonCorrect");
     }
   }
 }
 
 function clearColor() {
-  answerElements[0].style.backgroundColor = "white";
-  answerElements[1].style.backgroundColor = "white";
-  answerElements[2].style.backgroundColor = "white";
-  answerElements[3].style.backgroundColor = "white";
+  for (let l = 0; l < 4; l++) {
+    answerElements[l].classList.remove("answerButtonCorrect");
+    answerElements[l].classList.remove("answerButtonWrong");
+    answerElements[l].classList.remove("answerButtonClicked");
+    answerElements[l].disabled = false;
+  }
+
   submitButton.style.display = "inline-block";
   nextButton.style.display = "none";
-  answerElements[0].disabled = false;
-  answerElements[1].disabled = false;
-  answerElements[2].disabled = false;
-  answerElements[3].disabled = false;
 }
 
 function resetScore() {
   score.innerHTML = `0 / 1`;
 }
-
-callApi("amount=50&category=9&type=multiple");
-resetScore();
 
 //api: https://opentdb.com/api_config.php

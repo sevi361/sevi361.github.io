@@ -4,6 +4,10 @@
   font-family: "Source Code Pro";
 }
 
+h1 {
+  cursor: pointer;
+}
+
 html,
 body {
   height: 100%;
@@ -39,6 +43,10 @@ h2 {
   text-shadow: black 1px 0 10px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .answerButton,
 .answerButton[disabled] {
   color: black;
@@ -48,13 +56,27 @@ h2 {
   font-weight: bold;
   border: solid black 1px;
   border-radius: 4px;
-  background-color: white;
 }
 
 .answerButton:hover {
-  background-color: rgb(237, 237, 237);
   border-width: 1.25px;
   transform: scale(1.02);
+}
+
+.answerButtonNormal {
+  background-color: white;
+}
+
+.answerButtonClicked {
+  background-color: lightgrey;
+}
+
+.answerButtonCorrect {
+  background-color: lightgreen;
+}
+
+.answerButtonWrong {
+  background-color: rgb(254, 76, 76);
 }
 
 #submitButton {
@@ -77,6 +99,7 @@ h2 {
   height: 50px;
   width: 150px;
   font-size: large;
+  font-weight: bold;
   border: solid black 1px;
   border-radius: 4px;
 }
