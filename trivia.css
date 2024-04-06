@@ -4,10 +4,6 @@
   font-family: "Source Code Pro";
 }
 
-h1 {
-  cursor: pointer;
-}
-
 html,
 body {
   height: 100%;
@@ -25,6 +21,46 @@ body {
     rgba(0, 8, 119, 1) 100.7%
   );
   backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+h1 {
+  cursor: pointer;
+}
+
+h2 {
+  color: white;
+  text-shadow: black 1px 0 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: x-large;
+  }
+  #answerContainer {
+    margin: 10px 25px;
+  }
+  .answerButton,
+  .answerButton[disabled] {
+    font-size: medium;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  h2 {
+    font-size: xx-large;
+  }
+  #answerContainer {
+    margin: 30px 75px;
+  }
+  .answerButton,
+  .answerButton[disabled] {
+    font-size: large;
+  }
 }
 
 #navbar {
@@ -37,22 +73,11 @@ body {
   border-bottom: 3px solid white;
 }
 
-h2 {
-  font-size: xx-large;
-  color: white;
-  text-shadow: black 1px 0 10px;
-}
-
-button {
-  cursor: pointer;
-}
-
 .answerButton,
 .answerButton[disabled] {
   color: black;
   margin: 5px;
   padding: 15px 10px;
-  font-size: large;
   font-weight: bold;
   border: solid black 1px;
   border-radius: 4px;
@@ -124,7 +149,6 @@ button {
 }
 
 #answerContainer {
-  margin: 30px 75px;
   min-height: 175px;
   border: none black 1px;
   border-radius: 4px;
@@ -140,10 +164,35 @@ button {
   justify-content: center;
 }
 
-#scoreContainer {
+#timer {
   position: fixed;
   bottom: 2%;
-  width: 98%;
+  left: 2%;
+}
+
+#score {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+
+.endScoreContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
   display: flex;
-  justify-content: right;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  /* border: solid black 1px; */
+}
+
+.containerDisabled {
+  display: none;
+  width: 0px;
+  height: 0px;
 }

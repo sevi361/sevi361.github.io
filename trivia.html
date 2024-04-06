@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trivia</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="trivia.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
     </style>
@@ -13,21 +13,28 @@
     <header id="navbar">
       <h1 onclick="window.location.href='/index.html'">trivia</h1>
     </header>
-    <div id="questionContainer">
-      <h2 id="newQuestion"></h2>
+    <div id="mainContainer">
+      <div id="questionContainer">
+        <h2 id="newQuestion"></h2>
+      </div>
+      <div id="answerContainer">
+        <button class="answerButton" onclick="inputAnswer(1)"></button>
+        <button class="answerButton" onclick="inputAnswer(2)"></button>
+        <button class="answerButton" onclick="inputAnswer(3)"></button>
+        <button class="answerButton" onclick="inputAnswer(4)"></button>
+      </div>
+      <div id="submitContainer">
+        <button id="submitButton" onclick="submitAnswer()">Submit</button>
+        <button id="nextButton" onclick="createQuiz()">Next</button>
+      </div>
+      <div id="scoreContainer">
+        <h2 id="timer"></h2>
+        <h2 id="score"></h2>
+      </div>
     </div>
-    <div id="answerContainer">
-      <button class="answerButton" onclick="inputAnswer(1)"></button>
-      <button class="answerButton" onclick="inputAnswer(2)"></button>
-      <button class="answerButton" onclick="inputAnswer(3)"></button>
-      <button class="answerButton" onclick="inputAnswer(4)"></button>
-    </div>
-    <div id="submitContainer">
-      <button id="submitButton" onclick="submitAnswer()">Submit</button>
-      <button id="nextButton" onclick="createQuiz()">Next</button>
-    </div>
-    <div id="scoreContainer">
-      <h2 id="score"></h2>
+    <div id="endScoreContainer" class="endScoreContainer">
+      <h2 id="endScoreMessage"></h2>
+      <h2 id="endScore"></h2>
     </div>
   </body>
   <script src="trivia.js"></script>

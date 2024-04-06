@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trivia</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="trivia.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -32,7 +32,7 @@
           <input type="text" name="Mode" id="modeField" value="" required />
           <div id="gameOptions">
             <select id="categorySelector" name="Category">
-              <!-- <option value="any">All</option> -->
+              <option value="any">All</option>
               <option value="9">General Knowledge</option>
               <option value="17">Science & Nature</option>
               <option value="20">Mythology</option>
@@ -45,16 +45,33 @@
               <option value="11">Film</option>
               <option value="23">History</option>
             </select>
+            <select id="difficultySelector" name="Difficulty">
+              <option value="any">Any</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
             <input
               type="number"
               value="50"
+              placeholder="amt"
               min="1"
-              max="50"
+              max="100"
               name="Amount"
               id="amountSelector"
+              required
+            />
+            <input
+              type="number"
+              value="90"
+              placeholder="s"
+              min="1"
+              max="600"
+              name="Time"
+              id="timeSelector"
+              required
             />
           </div>
-
           <button id="startButton">Start</button>
         </form>
       </div>
