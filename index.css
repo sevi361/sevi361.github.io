@@ -6,11 +6,24 @@
   font-family: "Source Code Pro";
 }
 
-html {
-  height: 100%;
-}
+html,
 body {
   height: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  #gameOptions {
+    margin: 0px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #gameOptions {
+    justify-content: space-between;
+  }
 }
 
 #menuContainer {
@@ -98,7 +111,6 @@ body {
 
 #gameOptions {
   display: flex;
-  justify-content: space-between;
 }
 
 #amountSelector,
@@ -113,7 +125,7 @@ body {
   font-size: large;
   padding: 5px;
   cursor: pointer;
-  margin: 0px 5px;
+  margin: 5px 5px;
 }
 
 .containerDisabled {
