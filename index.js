@@ -16,7 +16,7 @@ function modeSelection(button, mode) {
     modeButtons[l].classList.remove("modeButtonSelected"); //Beim Drücken eines Knopfes, wird der zuvor gedrückte Knopf "abgewählt" (visuell)
   }
   modeButtons[button].classList.add("modeButtonSelected"); //Und der gedrückte "angewählt"
-  document.getElementById("modeField").value = mode; //Damit ich später auf die Query zugreifen kann, beschreibe ich ein psuedo Input Feld mit dem Wert des Modus
+  document.getElementById("modeField").value = mode; //Damit ich später auf den Modus über die URL Params zugreifen kann, beschreibe ich ein psuedo Input Feld mit dem Wert des Modus
   if (mode == "Endless") {
     //Anzeigen / Ausblenden der Input Feldern
     amountSelector.classList.add("containerDisabled");

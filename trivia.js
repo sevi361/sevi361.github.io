@@ -1,4 +1,4 @@
-const apiUrl = "https://opentdb.com/api.php?";
+const apiUrl = "https://opentdb.com/api.php?"; //api: https://opentdb.com/api_config.php
 const newQuestion = document.getElementById("newQuestion");
 const mainContainer = document.getElementById("mainContainer");
 const endScoreContainer = document.getElementById("endScoreContainer");
@@ -11,6 +11,7 @@ const endScore = document.getElementById("endScore");
 const endScoreMessage = document.getElementById("endScoreMessage");
 
 //Definiere Variablen mit den URL Parametern
+//Quelle: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
 
 const urlParams = new URLSearchParams(window.location.search);
 const category = urlParams.get("Category");
@@ -98,6 +99,7 @@ function timer(s) {
 }
 
 function shuffleArray(array) {
+  //Quelle: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   //Die Reihenfolge der Antwortmöglichkeiten durchmischen
   for (let i = array.length - 1; i > 0; i--) {
     //Für die Indexlänge des gegebenen Arrays wird eine zufälliger Index eines temporären Arrays überschrieben
@@ -109,6 +111,7 @@ function shuffleArray(array) {
 }
 
 function decodeHtml(html) {
+  //https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it
   //Weil es bei der Dekodierung des HTML Codes via API zu Formatierungs- "Fehlern" kommt, wird dies hier mit einem einfachen Trick behoben
   let txt = document.createElement("textarea");
   txt.innerHTML = html; //Ein pseudo Element wird mit dem HTML Code beschrieben
@@ -116,6 +119,7 @@ function decodeHtml(html) {
 }
 
 function callApi(query) {
+  //Quelle: https://www.freecodecamp.org/news/how-to-fetch-data-from-an-api-using-the-fetch-api-in-javascript/ + https://developer.mozilla.org/en-US/docs/Web/API/Response/statusText
   //Die Query, welche in den Spieloptionen konfiguriert wird, wird in die Funktion gegeben
   fetch(apiUrl + query) //Die Fetch-Methode ist eine der Möglichkeiten, auf eine API zuzugreifen. Sie basiert auf Promises, welche, wie der Name sagt, verspricht, eine Antwort zu senden. Somit kann das Programm weiterlaufen, während es auf die Daten "wartet" (dauert Milisekunden)
     //Ein Promise kann verschiedene Status haben. Z.B. OK (success), Processing, Continue
@@ -130,7 +134,7 @@ function callApi(query) {
         if (response.status == 429) {
           //Fehler: "Too many requests" (Zu viele Anfragen) -> versuche es nocheinmal (Klingt paradox, funktioniert aber)
           callApi(apiCall);
-          console.log("fehler");
+          console.error("trying call again..");
         }
       }
       return response.json(); //Die Antwort wird als JSON Datei weitergegeben
@@ -139,7 +143,7 @@ function callApi(query) {
       //Die Erhaltene Antwort
       if (data.results.length == 0) {
         //Wenn das Array der Antworten leer ist (ist vorgekommen)
-        location.reload(); //Lade die Seite neu (Bzw. starte das Spiel neu)
+        location.reload(); //Lade die Seite neu (-> starte das Spiel neu)
       } else {
         quiz = data.results;
         //console.log(quiz);
@@ -192,7 +196,7 @@ function submitAnswer() {
     nextButton.style.display = "inline-block"; //Next Knopf wird eingeblendet
 
     if (
-      //Wenn die eingegebene Antwort der richtigen Antwort entspricht, gebe dem Spieler einen Punkt
+      //Wenn die eingegebene Antwort der richtigen Antwort entspricht, erhält der Spieler einen Punkt
       answerElements[chosenAnswer].innerHTML ==
       decodeHtml(quiz[questionNr].correct_answer)
     ) {
@@ -233,5 +237,3 @@ function clearColor() {
   submitButton.style.display = "inline-block";
   nextButton.style.display = "none";
 }
-
-//api: https://opentdb.com/api_config.php
