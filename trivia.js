@@ -65,6 +65,11 @@ function startGame() {
     apiCall = `amount=${amount}&category=${category}&type=multiple`;
     callApi(apiCall);
   }
+  if (difficulty != "any" && category != "any") {
+    //Wenn die Kategorie definiert wurde, die Schwierigkeit jedoch nicht
+    apiCall = `amount=${amount}&category=${category}&type=multiple&difficulty=${difficulty}`;
+    callApi(apiCall);
+  }
 }
 
 function endGame() {
