@@ -9,14 +9,32 @@
 html,
 body {
   height: 100%;
+
+  /* backdrop-filter: blur(10px); */
+  overflow: hidden;
+}
+
+.lightTheme {
   background: rgb(2, 0, 36);
   background-image: linear-gradient(
     111.9deg,
     rgba(221, 49, 49, 1) 0.3%,
     rgba(0, 8, 119, 1) 100.7%
   );
-  backdrop-filter: blur(10px);
-  overflow: hidden;
+}
+
+.darkTheme {
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {

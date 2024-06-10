@@ -4,9 +4,11 @@ const modeButtons = modeMenu.children;
 const amountSelector = document.getElementById("amountSelector");
 const timeSelector = document.getElementById("timeSelector");
 const difficultySelector = document.getElementById("difficultySelector");
+const theme = document.getElementById("theme");
 
 window.addEventListener("load", function () {
   gameMenu.classList.add("containerDisabled"); //Erweitertes Game Menu aus stylistischen Gründen zu Beginn versteckt
+  this.document.body.classList.add("lightTheme");
 });
 
 function modeSelection(button, mode) {
@@ -32,5 +34,17 @@ function modeSelection(button, mode) {
     amountSelector.classList.remove("containerDisabled");
     timeSelector.classList.remove("containerDisabled");
     difficultySelector.classList.remove("containerDisabled");
+  }
+}
+
+function changeTheme() {
+  if (this.document.body.classList.contains("lightTheme")) {
+    this.document.body.classList.remove("lightTheme");
+    this.document.body.classList.add("darkTheme");
+    theme.value = "dark";
+  } else {
+    this.document.body.classList.remove("darkTheme");
+    this.document.body.classList.add("lightTheme");
+    theme.value = "light";
   }
 }

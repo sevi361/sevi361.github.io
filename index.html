@@ -10,7 +10,7 @@
   <body>
     <div id="menuContainer">
       <div id="titleContainer">
-        <h1 id="title">trivia</h1>
+        <h1 id="title" onclick="changeTheme()">trivia</h1>
         <h2 id="subtitle">by <br />sevi</h2>
         <br />
       </div>
@@ -71,6 +71,7 @@
               id="timeSelector"
               required
             />
+            <input type="text" value="light" id="theme" name="Theme" hidden />
           </div>
           <button id="startButton">Start</button>
         </form>

@@ -19,6 +19,7 @@ let amount = urlParams.get("Amount");
 const time = urlParams.get("Time");
 const difficulty = urlParams.get("Difficulty");
 const mode = urlParams.get("Mode");
+const theme = urlParams.get("Theme");
 
 let apiCall;
 let questionNr = 0;
@@ -31,7 +32,7 @@ let selected = false;
 
 window.addEventListener("load", function () {
   //Erst wenn Seite vollständig geladen wurde
-
+  changeTheme();
   startGame();
 });
 
@@ -236,4 +237,14 @@ function clearColor() {
 
   submitButton.style.display = "inline-block";
   nextButton.style.display = "none";
+}
+
+function changeTheme() {
+  if (theme == "dark") {
+    this.document.body.classList.remove("lightTheme");
+    this.document.body.classList.add("darkTheme");
+  } else {
+    this.document.body.classList.remove("darkTheme");
+    this.document.body.classList.add("lightTheme");
+  }
 }
