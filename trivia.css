@@ -53,6 +53,7 @@ h2 {
 
 button {
   cursor: pointer;
+  border-radius: 6px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -100,7 +101,6 @@ button {
   padding: 15px 10px;
   font-weight: bold;
   border: solid black 1px;
-  border-radius: 4px;
 }
 
 .answerButton:hover {
@@ -125,7 +125,7 @@ button {
   background-color: rgb(254, 76, 76);
 }
 
-input {
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -137,7 +137,6 @@ input {
   font-size: large;
   font-weight: bold;
   border: solid black 1px;
-  border-radius: 4px;
 }
 
 #submitButton:hover {
@@ -153,7 +152,6 @@ input {
   font-size: large;
   font-weight: bold;
   border: solid black 1px;
-  border-radius: 4px;
 }
 
 #nextButton:hover {
