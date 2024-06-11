@@ -188,6 +188,7 @@ function inputAnswer(number) {
   chosenAnswer = number - 1;
   answerElements[chosenAnswer].classList.add("answerButtonClicked"); //Farbe des angeclickten Knopfes ändert sich
   selected = true;
+  submitButton.style.display = "inline-block"; //Submit Knopf wird eingeblendet
 }
 
 function submitAnswer() {
@@ -237,7 +238,7 @@ function clearColor() {
     answerElements[l].disabled = false;
   }
 
-  submitButton.style.display = "inline-block";
+  // submitButton.style.display = "inline-block";
   nextButton.style.display = "none";
 }
 
