@@ -9,6 +9,8 @@ const nextButton = document.getElementById("nextButton");
 const score = document.getElementById("score");
 const endScore = document.getElementById("endScore");
 const endScoreMessage = document.getElementById("endScoreMessage");
+const lightIcon = document.getElementById("lightThemeIcon");
+const darkIcon = document.getElementById("darkThemeIcon");
 
 //Definiere Variablen mit den URL Parametern
 //Quelle: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
@@ -239,12 +241,18 @@ function clearColor() {
   nextButton.style.display = "none";
 }
 
-function changeTheme() {
+function changeTheme(theme) {
   if (theme == "dark") {
     this.document.body.classList.remove("lightTheme");
     this.document.body.classList.add("darkTheme");
+    lightIcon.style.display = "inline";
+    darkIcon.style.display = "none";
+    urlParams.set("Theme", "dark");
   } else {
     this.document.body.classList.remove("darkTheme");
     this.document.body.classList.add("lightTheme");
+    darkIcon.style.display = "inline";
+    lightIcon.style.display = "none";
+    urlParams.set("Theme", "light");
   }
 }

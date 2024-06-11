@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trivia</title>
     <link rel="stylesheet" href="trivia.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <header id="navbar">
       <h1 onclick="window.location.href='/index.html'">trivia</h1>
+      <span
+        class="material-symbols-outlined"
+        id="darkThemeIcon"
+        onclick="changeTheme('dark')"
+      >
+        dark_mode
+      </span>
+      <span
+        class="material-symbols-outlined"
+        id="lightThemeIcon"
+        onclick="changeTheme('light')"
+      >
+        light_mode
+      </span>
     </header>
     <div id="mainContainer">
       <div id="questionContainer">

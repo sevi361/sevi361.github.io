@@ -37,6 +37,11 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  cursor: pointer;
+}
+
 h1 {
   cursor: pointer;
 }
@@ -80,8 +85,9 @@ button {
 #navbar {
   background-color: black;
   height: 70px;
-  padding-left: 20px;
+  padding: 0px 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: white;
   border-bottom: 3px solid white;
@@ -107,7 +113,8 @@ button {
 }
 
 .answerButtonClicked {
-  background-color: lightgrey;
+  background-color: rgb(171, 171, 171);
+  transform: scale(1.02);
 }
 
 .answerButtonCorrect {
@@ -116,6 +123,12 @@ button {
 
 .answerButtonWrong {
   background-color: rgb(254, 76, 76);
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 #submitButton {
